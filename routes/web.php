@@ -36,3 +36,7 @@ Route::get("/logout", [AuthController::class,"logout"]);
 
 //dashboard
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/posts', [postController::class, 'index'])->name('posts.index');
+Route::post('/posts/store', [postController::class, 'store'])->name('posts.store');
+Route::put('/posts/update/{id}', [postController::class, 'update'])->name('posts.update');
+Route::delete('/posts/destroy/{id}', [postController::class, 'destroy'])->name('posts.destroy');
